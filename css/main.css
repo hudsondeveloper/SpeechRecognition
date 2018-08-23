@@ -523,6 +523,7 @@ ul li {
 .person {
     max-width: 270px;
     text-align: center;
+    margin: auto;
 }
 
 .person img {
