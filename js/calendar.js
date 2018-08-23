@@ -82,22 +82,58 @@ $(function() {
 			title  : 'Reunião de cada grupo dividido pela gestão',
 			start  : '2018-10-02'
 		},
+		{
+			title  : 'Entregas da semana em sala',
+			start  : '2018-10-05'
+		},
+		{
+			title  : 'Reunião geral por video conferencia 21:40',
+			start  : '2018-10-08'
+		},
+		{
+			title  : 'Reunião de cada grupo dividido pela gestão',
+			start  : '2018-10-09'
+		},
+		{
+			title  : 'Feriado Nacional',
+			start  : '2018-10-12'
+		},
+		{
+			title  : 'Reunião geral por video conferencia 21:40',
+			start  : '2018-10-15'
+		},
+		{
+			title  : 'Reunião de cada grupo dividido pela gestão',
+			start  : '2018-10-16'
+		},
+		{
+			title  : 'Entregas da semana em sala',
+			start  : '2018-10-19'
+		},
+		{
+			title  : 'Reunião geral por video conferencia 21:40',
+			start  : '2018-10-22'
+		},
+		{
+			title  : 'Reunião de cada grupo dividido pela gestão',
+			start  : '2018-10-23'
+		},
+		{
+			title  : 'Entregas da semana em sala',
+			start  : '2018-10-26'
+		},
+		{
+			title  : 'Entrega parcial dos projetos para equipe',
+			start  : '2018-10-29'
+		},
+		{
+			title  : 'Reunião de cada grupo dividido pela gestão',
+			start  : '2018-10-30'
+		},
+		{
+			title  : 'Entrega final dos projetos para o professor',
+			start  : '2018-11-02'
+		}
 	  ]
 	  })
 	});
-/*
-	
-05 out Entregas da semana em sala 
-08 out Reunião geral por video conferencia 21h40m 
-09 out Reunião de cada grupo dividido pela gestão 
-12 out Feriado Nacional 
-15 out Reunião geral por video conferencia 21h40m 
-16 out Reunião de cada grupo dividido pela gestão 
-19 out Entregas da semana em sala 
-22 out Reunião geral por video conferencia 21h40m 
-23 out Reunião de cada grupo dividido pela gestão 
-26 out Entregas da semana em sala 
-29 out Entrega parcial dos projetos para equipe 
-30 out Reunião de cada grupo dividido pela gestão
-02 nov	Entrega final dos projetos para o professor
-*/
