@@ -11,7 +11,10 @@ $(document).ready(function() {
 	});
 
 	// Fancybox
-	$('.work-box').fancybox();
+	$('.work-box').fancybox(
+	{
+		type:"image"
+	});
 
 	// Flexslider
 	$('.flexslider').flexslider({
