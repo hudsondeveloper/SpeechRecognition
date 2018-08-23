@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/font-icon.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel='stylesheet' href='css/fullcalendar.min.css' />
 </head>
 
 <body>
@@ -114,7 +116,7 @@
         </div>
         <!-- overlay -->
         </a> </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 work"> <a type="image" href="images/work-4"> <img src="images/work-4" alt="">
+                <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/work-4.jpg"> <img src="images/work-4.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption">
             <h5>Teste 1</h5>
@@ -199,47 +201,7 @@
     <!-- Equipes -->
 
     <!-- Cronogramas -->
-    <section id="testimonials" class="section testimonials no-padding">
-        <div class="container-fluid">
-            <div class="row no-gutter">
-                <div class="flexslider">
-                    <ul class="slides">
-                        <li>
-                            <div class="col-md-12">
-                                <blockquote>
-                                    <h1>Agosto <br> 23 ago Ajuste dos mapas conceituais e finalizar o site<br> 24 ago Entregas da semana em sala<br> 27 ago Reunião geral por video conferencia 21h40m <br>28 ago Reunião de cada grupo dividido pela gestão <br>29 ago analise da documentação do semestre anterior <br>31 ago Entregas da semana em sala
-                                    </h1>
-                                </blockquote>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-md-12">
-                                <blockquote>
-                                    <h1>Setembro <br>03 set Reunião geral por video conferencia 21h40m <br>04 set Reunião de cada grupo dividido pela gestão <br>07 set Feriado Nacional <br>10 set Reunião geral por video conferencia 21h40m <br>11 set Reunião de cada grupo dividido pela gestão <br>14 set Entregas da semana em sala <br>17 set Reunião geral por video conferencia 21h40m <br>18 set Reunião de cada grupo dividido pela gestão <br>21 set Entregas da semana em sala <br>24 set Reunião geral por video conferencia 21h40m <br>25 set Reunião de cada grupo dividido pela gestão <br>28 set Entregas da semana em sala
-                                    </h1>
-                                </blockquote>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-md-12">
-                                <blockquote>
-                                    <h1>"Outubro <br> 01 out Reunião geral por video conferencia 21h40m <br>02 out Reunião de cada grupo dividido pela gestão <br>05 out Entregas da semana em sala <br>08 out Reunião geral por video conferencia 21h40m <br>09 out Reunião de cada grupo dividido pela gestão <br>12 out Feriado Nacional <br>15 out Reunião geral por video conferencia 21h40m <br>16 out Reunião de cada grupo dividido pela gestão <br>19 out Entregas da semana em sala <br>22 out Reunião geral por video conferencia 21h40m <br>23 out Reunião de cada grupo dividido pela gestão <br>26 out Entregas da semana em sala <br>29 out Entrega parcial dos projetos para equipe <br>30 out Reunião de cada grupo dividido pela gestão</p>
-                                </blockquote>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-md-12">
-                                <blockquote>
-                                    <h1>novembro <br>
-                                    02 nov	Entrega final dos projetos para o professor </h1>
-                                </blockquote>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+	<div class="container" id="calendar"></div>
     <!-- Cronogramas -->
 
     <!-- Footer section -->
@@ -261,14 +223,18 @@
     <!-- Footer section -->
 
     <!-- JS FILES -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.flexslider-min.js"></script>
     <script src="js/jquery.fancybox.pack.js"></script>
     <script src="js/retina.min.js"></script>
     <script src="js/modernizr.js"></script>
     <script src="js/main.js"></script>
-    <script type="text/javascript" src="js/jquery.contact.js"></script>
+	<script src='js/moment.min.js'></script>
+	<script src='js/fullcalendar.min.js'></script>
+	<script src='js/pt-BR.js'></script>
+	<script src='js/calendar.js'>
+	</script>
 </body>
 
 </html>
