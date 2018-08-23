@@ -1,9 +1,9 @@
+![Logo UCSAL](https://image.ibb.co/hhX6vz/QQWQWQWQ.png)
 # Gestão do Conhecimento
 
 [Clique aqui para acessar o Website](https://qoppabot.github.io/gestaoconhecimento/)
 
 **Docente: Milton Correia Sampaio Filho**
-
 
 
 
