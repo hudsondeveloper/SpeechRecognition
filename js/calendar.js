@@ -36,7 +36,9 @@ $(function() {
 		},
 		{
 			title  : 'Feriado Nacional',
-			start  : '2018-09-07'
+			start  : '2018-09-07',
+			backgroundColor : '#ffff00',
+			textColor : '#000'
 		},
 		{
 			title  : 'Reunião geral por video conferencia 21:40',
@@ -96,7 +98,9 @@ $(function() {
 		},
 		{
 			title  : 'Feriado Nacional',
-			start  : '2018-10-12'
+			start  : '2018-10-12',
+			backgroundColor : '#ffff00',
+			textColor : '#000'
 		},
 		{
 			title  : 'Reunião geral por video conferencia 21:40',
