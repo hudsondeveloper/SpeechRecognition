@@ -17,5 +17,5 @@
 
 
 **TO-DO List**
-1. Página para cada um dos projetos, para facilitar a navegação intuitiva.
+1. Página para cada um dos projetos para facilitar a navegação intuitiva.
 2. Adição de descrição dos projetos e da disciplina.
