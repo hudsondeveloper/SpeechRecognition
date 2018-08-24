@@ -18,6 +18,8 @@
 
 **TO-DO List**
 1. Página para cada um dos projetos para facilitar a navegação intuitiva.
---1. Adição dos cronogramas referente aos projetos.
---2. Adição de Navbar para cada projeto.
+
+	1.1 Adição dos cronogramas referente aos projetos.
+
+	1.2. Adição de Navbar para cada projeto.
 2. Adição de descrição ~~dos projetos e~~ da disciplina.
