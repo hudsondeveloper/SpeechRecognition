@@ -29,7 +29,21 @@
         </div>
 
         <button class="btn btn-success btn-lg" id="speakBtn">Falar</button>
-        <div class="" id="oi">oi eu sou jarvis</div>
+
+        <div class="table" id="comandos">
+            <thead>
+                <td>
+                    <tr>janelas</tr>
+                </td>
+            </thead>
+            <tbody>
+                    <td>
+                        <tr>Facebook</tr>
+                    </td>
+            </tbody>
+
+
+        </div>
 
     </div>
 
@@ -56,6 +70,11 @@
                     if (result.toLowerCase() === 'oi') {
                         alert("oi eu sou o jarvis")
                     }
+                    if (result.toLowerCase() === 'facebook') {
+                        window.open('http://www.facebook.com.br');
+                    }
+
+                   
                     // window.location.href = 'http://' + result;
                 }, false);
             } else {
