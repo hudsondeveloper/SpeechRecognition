@@ -30,13 +30,9 @@
             </div>
         </div>
 
-        <button class="btn btn-success btn-lg" id="speakBtn">Falar</button>
-
-    </div>
 
     <script>
         window.addEventListener('DOMContentLoaded', function() {
-            var speakBtn = document.querySelector('#speakBtn');
             // testa se o navegador suporta o reconhecimento de voz
             if (window.SpeechRecognition || window.webkitSpeechRecognition) {
                 // captura a voz
