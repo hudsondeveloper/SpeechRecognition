@@ -24,11 +24,12 @@
         <div class="row">
             <div class="col-sm-12">
                 <h3 class="text-center">Bem vindo ao sistema web desenvolvido por Hudson & Luiz</h3>
-                <h1>Fale a palavra "Luz" e veja a magica</h1>
+                <h1 class="text-center">Fale a palavra "Luz" e veja a magica</h1>
             </div>
         </div>
 
         <button class="btn btn-success btn-lg" id="speakBtn">Falar</button>
+        <div class="" id="oi">oi eu sou jarvis</div>
 
     </div>
 
@@ -51,6 +52,9 @@
                     console.log(result);
                     if (result.toLowerCase() === 'luz') {
                         document.body.classList.toggle('luz-apagada');
+                    }
+                    if (result.toLowerCase() === 'oi') {
+                        alert("oi eu sou o jarvis")
                     }
                     // window.location.href = 'http://' + result;
                 }, false);
