@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html>
+
+
+     <!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,27 +25,12 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h3 class="text-center">Bem vindo ao sistema web desenvolvido por Hudson & Luiz</h3>
-                <h1 class="text-center">Fale a palavra "Luz" e veja a magica</h1>
+                <h1 class="text-center">Site feito por Hudson & Luiz</h1>
+                <p></p>
             </div>
         </div>
 
         <button class="btn btn-success btn-lg" id="speakBtn">Falar</button>
-
-        <div class="table" id="comandos">
-            <thead>
-                <td>
-                    <tr>janelas</tr>
-                </td>
-            </thead>
-            <tbody>
-                    <td>
-                        <tr>Facebook</tr>
-                    </td>
-            </tbody>
-
-
-        </div>
 
     </div>
 
@@ -55,32 +42,47 @@
                 // captura a voz
                 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
                 var recognition = new SpeechRecognition();
+                recognition.continuous = true;
+                recognition.start();
                 // inicia reconhecimento
                 speakBtn.addEventListener('click', function(e) {
                     recognition.start();
                 }, false);
                 // resultado do reconhecimento
                 recognition.addEventListener('result', function(e) {
+                    for (var i = event.resultIndex; i < event.results.length; ++i) {
                     console.log(e);
-                    var result = e.results[0][0].transcript;
+                    var result = e.results[i][0].transcript;
                     console.log(result);
-                    if (result.toLowerCase() === 'luz') {
-                        document.body.classList.toggle('luz-apagada');
-                    }
-                    if (result.toLowerCase() === 'oi') {
-                        alert("oi eu sou o jarvis")
-                    }
-                    if (result.toLowerCase() === 'facebook') {
-                        window.open('http://www.facebook.com.br');
-                    }
-
-                   
+                
                     // window.location.href = 'http://' + result;
-                }, false);
+                     verificar(result.replace(" ",""))
+                    }
+                  
+                },
+                 false);
             } else {
                 alert('Este navegador não suporta esta funcionalidade ainda!');
             }
         }, false);
+
+        function verificar(result){
+            if (result.toLowerCase() === 'luz') {
+                     document.body.classList.toggle('luz-apagada');
+                    }
+                    if (result.toLowerCase() === 'Oi') {
+                        document.getElementById("speakBtn").innerHTML = "oiii";
+                    }
+                    if (result.toLowerCase() === 'facebook') {
+                        window.open("/www.facebook.bom.br","_blank")
+                    }
+                    if (result.toLowerCase() === 'google') {
+                        window.open("www.google.bom.br","_blank")
+                    }
+                    if (result.toLowerCase() === 'youtube') {
+                        window.open("www.youtube.bom.br","_blank")
+                    }
+        }
     </script>
 </body>
 </html>
