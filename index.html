@@ -13,7 +13,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <style>
         body {
             font-size: 40px;
@@ -24,14 +24,15 @@
         }
     </style>
 </head>
-<body>
+<body style="background-color:black">
     
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1 class="text-center">Site feito por Hudson & Luiz</h1>
-                <p id="texto"></p>
+                <h1 class="text-center" style="color: white">Site feito por Hudson & Luiz</h1>
+                <p id="texto"  class="text-center"  style="color:springgreen" ></p>
             </div>
+            <img src="gif.gif"  alt="Luiz & Hudson">
         </div>
 
 
@@ -65,6 +66,7 @@
 
         function verificar(result){
             document.getElementById("texto").innerHTML = result;
+            translate(result)
             if (result.toLowerCase() === 'luz') {
                      document.body.classList.toggle('luz-apagada');
                     }
@@ -72,14 +74,29 @@
                        alert('olá, seja bem vindo')
                     }
                     if (result.toLowerCase() === 'facebook') {
-                        window.open("/www.facebook.bom.br","_blank")
+                        window.open('http://www.facebook.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
                     }
                     if (result.toLowerCase() === 'google') {
-                        window.open("www.google.bom.br","_blank")
+                        window.open('http://www.google.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
                     }
                     if (result.toLowerCase() === 'youtube') {
-                        window.open("www.youtube.bom.br","_blank")
+                        window.open('http://www.youtube.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
                     }
+        }
+        google.load("language","1");
+        function translate(txt){
+            google.language.detect(txt,function(result){
+                if(!result.error && result.language){
+                    google.language.translate(txt,"","pt",function(result){
+                        if(result.translation){
+                            alert(result.translation)
+
+                            }else{
+                            alert("Error.")
+                        }
+                    })
+                }
+            })
         }
     </script>
 </body>
