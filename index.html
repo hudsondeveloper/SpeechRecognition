@@ -25,19 +25,45 @@
     </style>
 </head>
 <body style="background-color:black">
+
+    <div style="display: none">
+     <!--/Barra de pesquisa no Google-->
+
+     <td valign="bottom"> </td>
+
+     
+     <form action="http://www.google.com/custom" method="GET" target="_blank" name="busca_google" >
+      
+                 <input type="hidden" name="domains" value="">
+                 <input type="hidden" name="sitesearch" value="" checked>
+                 <input type="text" name="q" size="40" class="link_11" id="pesquisar"> 
+           
+     
     
+                 <input type="submit" name="buscar" value="Buscar" id="buscar"  class="link_10">
+            
+   
+      
+     <!--/Barra de pesquisa no Google-->o-->
+    </div>
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <h1 class="text-center" style="color: white">Site feito por Hudson & Luiz</h1>
-                <p id="texto"  class="text-center"  style="color:springgreen" ></p>
+            <div class="col-sm-12" class="text-center" style="text-align: center" >
+                    <button class="btn btn-success btn-lg text-center" id="speakBtn">Falar</button>
+                <h1  style="color: white">Site feito por Hudson & Luiz</h1>
+                <p id="texto"   style="color:springgreen" ></p>
             </div>
-            <img src="gif.gif"  alt="Luiz & Hudson">
-        </div>
-
-
+  
+            
+        </div> 
+        <img src="gif.gif"  alt="Luiz & Hudson" width="300" style="text-align: center">
+         
+    </div> 
+         
+         
     <script>
         window.addEventListener('DOMContentLoaded', function() {
+            var speakBtn = document.querySelector('#speakBtn');
             // testa se o navegador suporta o reconhecimento de voz
             if (window.SpeechRecognition || window.webkitSpeechRecognition) {
                 // captura a voz
@@ -46,6 +72,9 @@
                 recognition.continuous = true;
                 recognition.start();
                 // inicia reconhecimento
+                speakBtn.addEventListener('click', function(e) {
+                    recognition.start();
+                }, false);
                 // resultado do reconhecimento
                 recognition.addEventListener('result', function(e) {
                     for (var i = event.resultIndex; i < event.results.length; ++i) {
@@ -59,12 +88,17 @@
                   
                 },
                  false);
+
+recognition.onend = function() {
+  console.log('Speech recognition service disconnected');
+}
+
             } else {
                 alert('Este navegador não suporta esta funcionalidade ainda!');
             }
         }, false);
 
-        function verificar(result){
+       async  function verificar(result){
             document.getElementById("texto").innerHTML = result;
             if (result.toLowerCase() === 'luz') {
                      document.body.classList.toggle('luz-apagada');
@@ -81,7 +115,13 @@
                     if (result.toLowerCase() === 'youtube') {
                         window.open('http://www.youtube.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
                     }
+                    if (result.toLowerCase().match(/pesquisar/)) {
+                        result.replace("pesquisar","")
+                        document.getElementById("pesquisar").value = result.replace("pesquisar","");
+                        document.getElementById("buscar").click();
+                    }  
         }
+
 
     </script>
 </body>
