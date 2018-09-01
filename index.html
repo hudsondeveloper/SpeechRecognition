@@ -6,7 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speech Recognition App</title>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
@@ -26,7 +30,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <h1 class="text-center">Site feito por Hudson & Luiz</h1>
-                <p></p>
+                <p id="texto"></p>
             </div>
         </div>
 
@@ -41,9 +45,6 @@
                 recognition.continuous = true;
                 recognition.start();
                 // inicia reconhecimento
-                speakBtn.addEventListener('click', function(e) {
-                    recognition.start();
-                }, false);
                 // resultado do reconhecimento
                 recognition.addEventListener('result', function(e) {
                     for (var i = event.resultIndex; i < event.results.length; ++i) {
@@ -63,11 +64,12 @@
         }, false);
 
         function verificar(result){
+            document.getElementById("texto").innerHTML = result;
             if (result.toLowerCase() === 'luz') {
                      document.body.classList.toggle('luz-apagada');
                     }
                     if (result.toLowerCase() === 'Oi') {
-                        document.getElementById("speakBtn").innerHTML = "oiii";
+                       alert('olá, seja bem vindo')
                     }
                     if (result.toLowerCase() === 'facebook') {
                         window.open("/www.facebook.bom.br","_blank")
