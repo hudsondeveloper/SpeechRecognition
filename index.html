@@ -54,10 +54,10 @@
                         <form name="form_relogio"> 
                             <input type="text" name="relogio" size="10" id="horario" style="background-color :#36465d; color : White; font-family : Verdana, Arial, Helvetica; font-size : 8pt; text-align : center;" onfocus="window.document.form_relogio.relogio.blur()"> 
                             </form> 
-                <p id="texto"   style="color:springgreen" ></p>
+                <p id="texto"   style="color:coral" ></p>
                 <img src="gif.gif"  alt="Luiz & Hudson" width="400" style="text-align: center" height="400" >
             </div>
-  
+
             
         </div> 
          
@@ -120,6 +120,12 @@ recognition.onend = function() {
                     if (result.toLowerCase() === 'youtube') {
                         window.open('http://www.youtube.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
                     }
+                    if (result.toLowerCase() === 'xvídeos') {
+                        window.open('http://www.xvideos.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
+                    }
+                    if (result.toLowerCase() === 'redtube') {
+                        window.open('http://www.redtube.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
+                    }
                     if (result.toLowerCase().match(/pesquisar/)) {
                         result.replace("pesquisar","")
                         document.getElementById("pesquisar").value = result.replace("pesquisar","");
@@ -151,9 +157,6 @@ recognition.onend = function() {
 
    	setTimeout("moveRelogio()",1000) 
 } 
-
-	 //  document.getElementById("horario").innerHTML = day + myweekday + month + year + " - " + timeValue;
-
 
     </script>
 </body>
