@@ -91,6 +91,8 @@
 
 recognition.onend = function() {
   console.log('Speech recognition service disconnected');
+  recognition.start();
+  console.log('Speech recognition service reconectado');
 }
 
             } else {
