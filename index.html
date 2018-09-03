@@ -24,8 +24,8 @@
         }
     </style>
 </head>
-<body style="background-color:black">
-
+<body style="background-color:#36465d" onload="moveRelogio()">
+    <!--//---------------------------------------------------------------------------------//-->
     <div style="display: none">
      <!--/Barra de pesquisa no Google-->
 
@@ -44,22 +44,24 @@
             
    
       
-     <!--/Barra de pesquisa no Google-->o-->
+     <!--/Barra de pesquisa no Google-->
     </div>
     <div class="container">
         <div class="row">
             <div class="col-sm-12" class="text-center" style="text-align: center" >
                     <!--<button class="btn btn-success btn-lg text-center" id="speakBtn">Falar</button>-->
-                <h1  style="color: white">Site feito por Hudson & Luiz</h1>
+                    <h1  style="color: white">IA</h1>
+                        <form name="form_relogio"> 
+                            <input type="text" name="relogio" size="10" id="horario" style="background-color :#36465d; color : White; font-family : Verdana, Arial, Helvetica; font-size : 8pt; text-align : center;" onfocus="window.document.form_relogio.relogio.blur()"> 
+                            </form> 
                 <p id="texto"   style="color:springgreen" ></p>
+                <img src="gif.gif"  alt="Luiz & Hudson" width="400" style="text-align: center" height="400" >
             </div>
   
             
         </div> 
-        <img src="gif.gif"  alt="Luiz & Hudson" width="300" style="text-align: center">
          
     </div> 
-         
          
     <script>
         window.addEventListener('DOMContentLoaded', function() {
@@ -90,9 +92,10 @@
                  false);
 
 recognition.onend = function() {
-  console.log('Speech recognition service disconnected');
+    now = new Date
+  console.log('Speech recognition service disconnected ',"Agora são "  + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + ":" + now.getMilliseconds());
   recognition.start();
-  console.log('Speech recognition service reconectado');
+  console.log('Speech recognition service reconectado ',"Agora são "  + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + ":" + now.getMilliseconds());
 }
 
             } else {
@@ -123,6 +126,33 @@ recognition.onend = function() {
                         document.getElementById("buscar").click();
                     }  
         }
+
+       function moveRelogio(){ 
+   	momentoAtual = new Date() 
+   	hora = momentoAtual.getHours() 
+   	minuto = momentoAtual.getMinutes() 
+   	segundo = momentoAtual.getSeconds() 
+
+   	str_segundo = new String (segundo) 
+   	if (str_segundo.length == 1) 
+      	segundo = "0" + segundo 
+
+   	str_minuto = new String (minuto) 
+   	if (str_minuto.length == 1) 
+      	minuto = "0" + minuto 
+
+   	str_hora = new String (hora) 
+   	if (str_hora.length == 1) 
+      	hora = "0" + hora 
+
+   var	horaImprimible = hora + " : " + minuto + " : " + segundo ;
+
+   	document.getElementById("horario").value = horaImprimible ;
+
+   	setTimeout("moveRelogio()",1000) 
+} 
+
+	 //  document.getElementById("horario").innerHTML = day + myweekday + month + year + " - " + timeValue;
 
 
     </script>
