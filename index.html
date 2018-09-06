@@ -1,16 +1,16 @@
+<!DOCTYPE html>
 
-
-     <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speech Recognition App</title>
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="shortcut icon" href="https://png.icons8.com/dotty/50/000000/bot.png" />
@@ -19,62 +19,65 @@
         body {
             font-size: 40px;
         }
+
         .luz-apagada {
             color: white;
             background-color: black;
         }
     </style>
 </head>
+
 <body style="background-color:#36465d" onload="moveRelogio()">
-   
+
 
     <div style="display: none">
-     <!--/Barra de pesquisa no Google-->
+        <!--/Barra de pesquisa no Google-->
 
-     <td valign="bottom"> </td>
+        <td valign="bottom"> </td>
 
-     
-     <form action="https://www.google.com/custom" method="GET" target="_blank" name="busca_google" >
-      
-                 <input type="hidden" name="domains" value="">
-                 <input type="hidden" name="sitesearch" value="" checked>
-                 <input type="text" name="q" size="40" class="link_11" id="pesquisar"> 
-           
-     
-    
-                 <input type="submit" name="buscar" value="Buscar" id="buscar"  class="link_10">
-            
-   
-      
-     <!--/Barra de pesquisa no Google-->
+
+        <form action="https://www.google.com/custom" method="GET" target="_blank" name="busca_google">
+
+            <input type="hidden" name="domains" value="">
+            <input type="hidden" name="sitesearch" value="" checked>
+            <input type="text" name="q" size="40" class="link_11" id="pesquisar">
+
+
+
+            <input type="submit" name="buscar" value="Buscar" id="buscar" class="link_10">
+
+
+
+            <!--/Barra de pesquisa no Google-->
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-sm-12" class="text-center" style="text-align: center" >
-                    <!--<button class="btn btn-success btn-lg text-center" id="speakBtn">Falar</button>-->
-                    <h1  style="color: white">IA</h1>
-                        <form name="form_relogio"> 
-                            <input type="text" name="relogio" size="10" id="horario" style="background-color :#36465d; color : White; font-family : Verdana, Arial, Helvetica; font-size : 8pt; text-align : center;"> 
-                            </form> 
-                <p id="texto"   style="color:coral" ></p>
-            
-                <form name="form_flr" style="text-align: center"> 
-                     <input type="text" name="fala" class="form-control" style="display:none;" id="fala">
-                     <a href="#" class="say" style="display:none;" id="ler">falar</a>
-                     <audio src="" hidden class=speech></audio>
-                    </form>
-                <img src="gif.gif"  alt="Luiz & Hudson" width="400" style="text-align: center;max-width: 100%;height: auto;" height="400" class="img-fluid">
-           
-    
+            <div class="col-sm-12" class="text-center" style="text-align: center">
+                <!--<button class="btn btn-success btn-lg text-center" id="speakBtn">Falar</button>-->
+                <h1 style="color: white">IA</h1>
+                <form name="form_relogio">
+                    <input type="text" name="relogio" size="10" id="horario" style="background-color :#36465d; color : White; font-family : Verdana, Arial, Helvetica; font-size : 8pt; text-align : center;">
+                </form>
+                <p id="texto" style="color:coral"></p>
+
+                <form name="form_flr" style="text-align: center">
+                    <input type="text" name="fala" class="form-control" style="display:none;" id="fala">
+                    <a href="#" class="say" style="display:none;" id="ler">falar</a>
+                    <audio src="" hidden class=speech></audio>
+                </form>
+                <img src="gif.gif" alt="Luiz & Hudson" width="400" style="text-align: center;max-width: 100%;height: auto;" height="400"
+                    class="img-fluid">
+
+
             </div>
 
-            
-        </div> 
-         
-    </div> 
-         
+
+        </div>
+
+    </div>
+
     <script>
-        window.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('DOMContentLoaded', function () {
             //var speakBtn = document.querySelector('#speakBtn');
             // testa se o navegador suporta o reconhecimento de voz
             if (window.SpeechRecognition || window.webkitSpeechRecognition) {
@@ -84,115 +87,116 @@
                 recognition.continuous = true;
                 recognition.start();
                 // inicia reconhecimento
-              //  speakBtn.addEventListener('click', function(e) {
-                 //   recognition.start();
+                //  speakBtn.addEventListener('click', function(e) {
+                //   recognition.start();
                 //}, false);
                 // resultado do reconhecimento
-                recognition.addEventListener('result', function(e) {
+                recognition.addEventListener('result', function (e) {
                     for (var i = event.resultIndex; i < event.results.length; ++i) {
-                    console.log(e);
-                    var result = e.results[i][0].transcript;
-                    console.log(result);
-                
-                    // window.location.href = 'http://' + result;
-                     verificar(result.replace(" ",""))
-                    }
-                  
-                },
-                 false);
+                        console.log(e);
+                        var result = e.results[i][0].transcript;
+                        console.log(result);
 
-recognition.onend = function() {
-    now = new Date
-  console.log('Speech recognition service disconnected ',"Agora são "  + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + ":" + now.getMilliseconds());
-  recognition.start();
-  console.log('Speech recognition service reconectado ',"Agora são "  + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + ":" + now.getMilliseconds());
-}
+                        // window.location.href = 'http://' + result;
+                        verificar(result.replace(" ", ""))
+                    }
+
+                },
+                    false);
+
+                recognition.onend = function () {
+                    now = new Date
+                    console.log('Speech recognition service disconnected ', "Agora são " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + ":" + now.getMilliseconds());
+                    recognition.start();
+                    console.log('Speech recognition service reconectado ', "Agora são " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + ":" + now.getMilliseconds());
+                }
 
             } else {
                 alert('Este navegador não suporta esta funcionalidade ainda!');
             }
         }, false);
 
-        async  function verificar(result){
-        document.getElementById("texto").innerHTML = result;
-        if (result.toLowerCase() === 'luz') {
-                    document.body.classList.toggle('luz-apagada');
-                }
-                if (result.toLowerCase() === 'oi') {
-                    alert('olá, seja bem vindo')
-                }
-                if (result.toLowerCase() === 'facebook') {
-                    window.open('http://www.facebook.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
-                }
-                if (result.toLowerCase() === 'google') {
-                    window.open('http://www.google.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
-                }
-                if (result.toLowerCase() === 'youtube') {
-                    window.open('http://www.youtube.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
-                }
-                if (result.toLowerCase() === 'xvídeos') {
-                    window.open('http://www.xvideos.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
-                }
-                if (result.toLowerCase() === 'redtube') {
-                    window.open('http://www.redtube.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
-                }
-                if (result.toLowerCase().match(/pesquisar/)) {
-                    result.replace("pesquisar","")
-                    document.getElementById("pesquisar").value = result.replace("pesquisar","");
-                    document.getElementById("buscar").click();
-                }  
-                if (result.toLowerCase().match(/leia/) || result.toLowerCase().match(/leia para mim/) || result.toLowerCase().match(/leia o texto/)|| result.toLowerCase() === '6'|| result.toLowerCase().match(/ler/)) {
+        async function verificar(result) {
+            document.getElementById("texto").innerHTML = result;
+            if (result.toLowerCase() === 'luz') {
+                document.body.classList.toggle('luz-apagada');
+            }
+            if (result.toLowerCase() === 'oi') {
+                alert('olá, seja bem vindo')
+            }
+            if (result.toLowerCase() === 'facebook') {
+                window.open('http://www.facebook.com.br', "width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
+            }
+            if (result.toLowerCase() === 'google') {
+                window.open('http://www.google.com.br', "width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
+            }
+            if (result.toLowerCase() === 'youtube') {
+                window.open('http://www.youtube.com.br', "width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
+            }
+            if (result.toLowerCase() === 'xvídeos') {
+                window.open('http://www.xvideos.com.br', "width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
+            }
+            if (result.toLowerCase() === 'redtube') {
+                window.open('http://www.redtube.com.br', "width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
+            }
+            if (result.toLowerCase().match(/pesquisar/)) {
+                result.replace("pesquisar", "")
+                document.getElementById("pesquisar").value = result.replace("pesquisar", "");
+                document.getElementById("buscar").click();
+            }
+            if (result.toLowerCase().match(/leia/) || result.toLowerCase().match(/leia para mim/) || result.toLowerCase().match(/leia o texto/) || result.toLowerCase() === '6' || result.toLowerCase().match(/ler/)) {
                 var text = $("input[name=fala]").val();
-                responsiveVoice.speak(text,"Brazilian Portuguese Female");
-                text=encodeURIComponent(text);
-                var url="http://"
-                }     
-                if (result.toLowerCase().match(/habilitar/) && result.toLowerCase().match(/escrita/) ) {
-                    document.getElementById("fala").style.display = 'block'
-                    document.getElementById("fala").style.textAlign = 'center'
-                }    
-                if (result.toLowerCase().match(/desabilitar/) && result.toLowerCase().match(/escrita/) ) {
-                    document.getElementById("fala").style.display = 'none'
-                }        
-                if (result.toLowerCase().match(/horas/) || result.toLowerCase().match(/hora/) ) {
-                    var horas = $("input[name=relogio]").val();
-                responsiveVoice.speak(horas ,"Brazilian Portuguese Female");
-                text=encodeURIComponent(horas);
-                var url="http://"
-                }        
-                if (result.toLowerCase().match(/cala/) || result.toLowerCase().match(/desliga/) || result.toLowerCase().match(/quieto/) || result.toLowerCase().match(/chega/)) {
-                    responsiveVoice.cancel();
-                }  
-               
+                responsiveVoice.speak(text, "Brazilian Portuguese Female");
+                text = encodeURIComponent(text);
+                var url = "http://"
+            }
+            if (result.toLowerCase().match(/habilitar/) && result.toLowerCase().match(/escrita/)) {
+                document.getElementById("fala").style.display = 'block'
+                document.getElementById("fala").style.textAlign = 'center'
+            }
+            if (result.toLowerCase().match(/desabilitar/) && result.toLowerCase().match(/escrita/)) {
+                document.getElementById("fala").style.display = 'none'
+            }
+            if (result.toLowerCase().match(/horas/) || result.toLowerCase().match(/hora/)) {
+                var horas = $("input[name=relogio]").val();
+                responsiveVoice.speak(horas, "Brazilian Portuguese Female");
+                text = encodeURIComponent(horas);
+                var url = "http://"
+            }
+            if (result.toLowerCase().match(/cala/) || result.toLowerCase().match(/desliga/) || result.toLowerCase().match(/quieto/) || result.toLowerCase().match(/chega/)) {
+                responsiveVoice.cancel();
             }
 
-  
+        }
 
-       function moveRelogio(){ 
-   	momentoAtual = new Date() 
-   	hora = momentoAtual.getHours() 
-   	minuto = momentoAtual.getMinutes() 
-   	segundo = momentoAtual.getSeconds() 
 
-   	str_segundo = new String (segundo) 
-   	if (str_segundo.length == 1) 
-      	segundo = "0" + segundo 
 
-   	str_minuto = new String (minuto) 
-   	if (str_minuto.length == 1) 
-      	minuto = "0" + minuto 
+        function moveRelogio() {
+            momentoAtual = new Date()
+            hora = momentoAtual.getHours()
+            minuto = momentoAtual.getMinutes()
+            segundo = momentoAtual.getSeconds()
 
-   	str_hora = new String (hora) 
-   	if (str_hora.length == 1) 
-      	hora = "0" + hora 
+            str_segundo = new String(segundo)
+            if (str_segundo.length == 1)
+                segundo = "0" + segundo
 
-   var	horaImprimible = hora + " : " + minuto + " : " + segundo ;
+            str_minuto = new String(minuto)
+            if (str_minuto.length == 1)
+                minuto = "0" + minuto
 
-   	document.getElementById("horario").value = horaImprimible ;
+            str_hora = new String(hora)
+            if (str_hora.length == 1)
+                hora = "0" + hora
 
-   	setTimeout("moveRelogio()",1000) 
-} 
+            var horaImprimible = hora + " : " + minuto + " : " + segundo;
+
+            document.getElementById("horario").value = horaImprimible;
+
+            setTimeout("moveRelogio()", 1000)
+        }
 
     </script>
 </body>
+
 </html>
