@@ -14,6 +14,7 @@
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="shortcut icon" href="https://png.icons8.com/dotty/50/000000/bot.png" />
+    <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
     <style>
         body {
             font-size: 40px;
@@ -25,7 +26,8 @@
     </style>
 </head>
 <body style="background-color:#36465d" onload="moveRelogio()">
-    <!--//---------------------------------------------------------------------------------//-->
+   
+
     <div style="display: none">
      <!--/Barra de pesquisa no Google-->
 
@@ -55,7 +57,15 @@
                             <input type="text" name="relogio" size="10" id="horario" style="background-color :#36465d; color : White; font-family : Verdana, Arial, Helvetica; font-size : 8pt; text-align : center;"> 
                             </form> 
                 <p id="texto"   style="color:coral" ></p>
-                <img src="gif.gif"  alt="Luiz & Hudson" width="400" style="text-align: center" height="400" >
+            
+                <form name="form_flr" style="text-align: center"> 
+                     <input type="text" name="fala" class="form-control" style="display:none;" id="fala">
+                     <a href="#" class="say" style="display:none;" id="ler">falar</a>
+                     <audio src="" hidden class=speech></audio>
+                    </form>
+                <img src="gif.gif"  alt="Luiz & Hudson" width="400" style="text-align: center;max-width: 100%;height: auto;" height="400" class="img-fluid">
+           
+    
             </div>
 
             
@@ -103,35 +113,60 @@ recognition.onend = function() {
             }
         }, false);
 
-       async  function verificar(result){
-            document.getElementById("texto").innerHTML = result;
-            if (result.toLowerCase() === 'luz') {
-                     document.body.classList.toggle('luz-apagada');
-                    }
-                    if (result.toLowerCase() === 'oi') {
-                       alert('olá, seja bem vindo')
-                    }
-                    if (result.toLowerCase() === 'facebook') {
-                        window.open('http://www.facebook.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
-                    }
-                    if (result.toLowerCase() === 'google') {
-                        window.open('http://www.google.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
-                    }
-                    if (result.toLowerCase() === 'youtube') {
-                        window.open('http://www.youtube.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
-                    }
-                    if (result.toLowerCase() === 'xvídeos') {
-                        window.open('http://www.xvideos.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
-                    }
-                    if (result.toLowerCase() === 'redtube') {
-                        window.open('http://www.redtube.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
-                    }
-                    if (result.toLowerCase().match(/pesquisar/)) {
-                        result.replace("pesquisar","")
-                        document.getElementById("pesquisar").value = result.replace("pesquisar","");
-                        document.getElementById("buscar").click();
-                    }  
-        }
+        async  function verificar(result){
+        document.getElementById("texto").innerHTML = result;
+        if (result.toLowerCase() === 'luz') {
+                    document.body.classList.toggle('luz-apagada');
+                }
+                if (result.toLowerCase() === 'oi') {
+                    alert('olá, seja bem vindo')
+                }
+                if (result.toLowerCase() === 'facebook') {
+                    window.open('http://www.facebook.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
+                }
+                if (result.toLowerCase() === 'google') {
+                    window.open('http://www.google.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
+                }
+                if (result.toLowerCase() === 'youtube') {
+                    window.open('http://www.youtube.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
+                }
+                if (result.toLowerCase() === 'xvídeos') {
+                    window.open('http://www.xvideos.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
+                }
+                if (result.toLowerCase() === 'redtube') {
+                    window.open('http://www.redtube.com.br',"width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
+                }
+                if (result.toLowerCase().match(/pesquisar/)) {
+                    result.replace("pesquisar","")
+                    document.getElementById("pesquisar").value = result.replace("pesquisar","");
+                    document.getElementById("buscar").click();
+                }  
+                if (result.toLowerCase().match(/leia/) || result.toLowerCase().match(/leia para mim/) || result.toLowerCase().match(/leia o texto/)|| result.toLowerCase() === '6'|| result.toLowerCase().match(/ler/)) {
+                var text = $("input[name=fala]").val();
+                responsiveVoice.speak(text,"Brazilian Portuguese Female");
+                text=encodeURIComponent(text);
+                var url="http://"
+                }     
+                if (result.toLowerCase().match(/habilitar/) && result.toLowerCase().match(/escrita/) ) {
+                    document.getElementById("fala").style.display = 'block'
+                    document.getElementById("fala").style.textAlign = 'center'
+                }    
+                if (result.toLowerCase().match(/desabilitar/) && result.toLowerCase().match(/escrita/) ) {
+                    document.getElementById("fala").style.display = 'none'
+                }        
+                if (result.toLowerCase().match(/horas/) || result.toLowerCase().match(/hora/) ) {
+                    var horas = $("input[name=relogio]").val();
+                responsiveVoice.speak(horas ,"Brazilian Portuguese Female");
+                text=encodeURIComponent(horas);
+                var url="http://"
+                }        
+                if (result.toLowerCase().match(/cala/) || result.toLowerCase().match(/desliga/) || result.toLowerCase().match(/quieto/) || result.toLowerCase().match(/chega/)) {
+                    responsiveVoice.cancel();
+                }  
+               
+            }
+
+  
 
        function moveRelogio(){ 
    	momentoAtual = new Date() 
