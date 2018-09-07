@@ -122,7 +122,9 @@
                 document.body.classList.toggle('luz-apagada');
             }
             if (result.toLowerCase() === 'oi') {
-                alert('olá, seja bem vindo')
+                var texto = "hudson é lindo";
+                responsiveVoice.speak(texto, "Brazilian Portuguese Female");
+                text = encodeURIComponent(texto);
             }
             if (result.toLowerCase() === 'facebook') {
                 window.open('http://www.facebook.com.br', "width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
@@ -165,6 +167,10 @@
             }
             if (result.toLowerCase().match(/cala/) || result.toLowerCase().match(/desliga/) || result.toLowerCase().match(/quieto/) || result.toLowerCase().match(/chega/)) {
                 responsiveVoice.cancel();
+            }
+            if (result.toLowerCase().match(/fechar janela/) || result.toLowerCase().match(/fechar aba/) || result.toLowerCase().match(/fechar/)) {
+                var tab = window.open(window.location,"_top");
+  tab.close();
             }
 
         }
