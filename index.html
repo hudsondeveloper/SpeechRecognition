@@ -141,6 +141,12 @@
             if (result.toLowerCase() === 'redtube') {
                 window.open('http://www.redtube.com.br', "width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
             }
+            if (result.toLowerCase() === 'drive') {
+                window.open('https://drive.google.com/drive/u/2/my-drive', "width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
+            } 
+            if (result.toLowerCase() === 'gmail') {
+                window.open('https://mail.google.com/mail/u/0/#inbox', "width=800, height=600,directories=no, location=no,menubar=no,scrollbars=no,status=no, toolbar=no,resizable=no")
+            }
             if (result.toLowerCase().match(/pesquisar/)) {
                 result.replace("pesquisar", "")
                 document.getElementById("pesquisar").value = result.replace("pesquisar", "");
